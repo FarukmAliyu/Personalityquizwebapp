@@ -1,18 +1,26 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Welcome to the Personality Quiz</title>
-		<link rel="stylesheet" href="quiz.css">
-		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-	</head>
-	<body>
-		<div id="container">
-            <h1>Personality Quiz</h1>
-  			<div id="quiz"></div>
-    		<div class="button" id="next"><a href="#">Next</a></div>
-    		<div class="button" id="prev"><a href="#">Prev</a></div> 
-           <button id="share" style="display: none;">Share</button>
-	</div>
-        <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
-		<script src="quiz.js"></script>
+<head>
+    <title>Welcome To The Personality Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-BYWM6IjYO05ugncT5Xgf7uJKHK48fPcKgAxyDLkljv3LYo+29QVmHOrXOyb9JqbuVcUq+25J7fqXAYOjDDa9sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="container">
+        <h1>Personality Quiz Test</h1>
+        <div id="quiz"></div>
+        <div class="button" id="next"><a href="#">Next</a></div>
+        <div class="button" id="prev"><a href="#">Prev</a></div> 
+        <button id="share" style="display: none;">Share</button>
+        <!-- Social media share icons -->
+        <div id="social-icons">
+            <a href="#" id="facebook-share"><i class="fab fa-facebook-square"></i></a>
+            <a href="#" id="twitter-share"><i class="fab fa-twitter-square"></i></a>
+            <a href="#" id="whatsapp-share"><i class="fab fa-whatsapp-square"></i></a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script src="quiz.js"></script>
 </body>
 </html>
