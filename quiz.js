@@ -127,7 +127,7 @@
     var personalityIndex = selectOptions.reduce((total, value) => total + value, 0) % personalityTypes.length;
     return personalityTypes[personalityIndex];
   }
-})();$('#next').click(function() {
+  $('#next').click(function() {
     chooseOption();
     if (isNaN(selectOptions[quesCounter])) {
         alert('Please select an option !');
