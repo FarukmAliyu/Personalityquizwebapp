@@ -127,6 +127,8 @@
     var personalityIndex = selectOptions.reduce((total, value) => total + value, 0) % personalityTypes.length;
     return personalityTypes[personalityIndex];
   }
-});
+})();
+
+
 
 
