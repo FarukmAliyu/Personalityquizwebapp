@@ -128,37 +128,3 @@
     return personalityTypes[personalityIndex];
   }
 });
-// functions for sharing options
-
-document.getElementById("whatsapp-btn").addEventListener("click", shareViaWhatsApp);
-document.getElementById("facebook-btn").addEventListener("click", shareViaFacebook);
-document.getElementById("instagram-btn").addEventListener("click", shareViaInstagram);
-document.getElementById("copy-link-btn").addEventListener("click", copyLinkToClipboard);
-
-function shareViaWhatsApp() {
-  const message = encodeURIComponent("Check out my result on the Personality Quiz: Your Result. Click here: Share URL");
-  window.open(`https://wa.me/?text=${message}`);
-}
-
-function shareViaFacebook() {
-  const shareURL = encodeURIComponent("Share URL");
-  window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareURL}`);
-}
-
-function shareViaInstagram() {
-  const shareURL = encodeURIComponent("Share URL");
-  window.open(`https://www.instagram.com/?url=${shareURL}`);
-}
-
-function copyLinkToClipboard() {
-  const shareURL = "Share URL";
-  navigator.clipboard.writeText(shareURL);
-  alert("Link copied to clipboard!");
-}
-function selectEmoji(emoji) {
-  document.getElementById("result-icon").innerHTML = `<span>${emoji}</span>`;
-}
-
-
-
-
