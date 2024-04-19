@@ -136,7 +136,6 @@
         document.getElementById('clickSound').play();
         quesCounter++;
         nextQuestion();
-    }
 });
 
 
