@@ -1,3 +1,4 @@
+
 (function() {
   var allQuestions = [{
     question: "What is your favorite type of music?:",
@@ -114,4 +115,17 @@
         $('#prev').hide();
         $('#share').show(); // Show share button on results page
       }
-});
+    });
+  }
+
+  $('#share').click(function() {
+    // Placeholder for sharing functionality
+    alert("Share your personality type!");
+  });
+
+  function getPersonalityType() {
+    // Determine the personality type based on the selected options
+    var personalityIndex = selectOptions.reduce((total, value) => total + value, 0) % personalityTypes.length;
+    return personalityTypes[personalityIndex];
+  }
+})();
