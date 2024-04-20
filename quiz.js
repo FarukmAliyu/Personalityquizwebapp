@@ -114,4 +114,4 @@
         $('#prev').hide();
         $('#share').show(); // Show share button on results page
       }
-})();
+});
