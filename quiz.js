@@ -1,4 +1,3 @@
-
 (function() {
   var allQuestions = [{
     question: "What is your favorite type of music?:",
@@ -18,7 +17,7 @@
     answer: 0
   }, {
     question: "What is your favorite season?",
-    options: ["Winter", "Fall", "Summer", "Spring"],
+    options: ["❄️ Winter", "🍁 Fall", "☀️ Summer", "🌸 Spring"],
     answer: 1
   }];
 
@@ -129,3 +128,4 @@
     return personalityTypes[personalityIndex];
   }
 })();
+
