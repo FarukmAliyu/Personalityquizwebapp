@@ -1,7 +1,6 @@
-(function() {
-  var allQuestions = [{
+var allQuestions = [{
     question: "What is your favorite type of music?:",
-    options: ["Pop", "Hip/Hop", "RnB", "Jazz"],
+    options: ["Pop 🎤", "Hip/Hop 🎧", "RnB 🎵", "Jazz 🎷"],
     answer: 2
   }, {
     question: "How do you prefer to communicate with others?",
@@ -9,17 +8,18 @@
     answer: 3
   }, {
     question: "Which animal best represents your personality?",
-    options: ["Dog", "Lion", "Cat", "Dolphin"],
+    options: ["Dog 🐶", "Lion 🦁", "Cat 🐱", "Dolphin 🐬"],
     answer: 1
   }, {
     question: "What type of movies do you enjoy the most?",
-    options: ["Action", "Comedy", "Drama", "Science Fiction"],
+    options: ["Action 🎬", "Comedy 😂", "Drama 🎭", "Science Fiction 🚀"],
     answer: 0
   }, {
     question: "What is your favorite season?",
-    options: ["❄️ Winter", "🍁 Fall", "☀️ Summer", "🌸 Spring"],
+    options: ["Winter ❄️", "Fall 🍁", "Summer ☀️", "Spring 🌸"],
     answer: 1
-  }];
+}];
+
 
   var personalityTypes = [
     "Type A: The Social Butterfly",
