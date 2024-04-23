@@ -19,9 +19,7 @@ var allQuestions = [{
     options: ["Winter ❄️", "Fall 🍁", "Summer ☀️", "Spring 🌸"],
     answer: 1
 }];
-
-
-  var personalityTypes = [
+var personalityTypes = [
     "Type A: The Social Butterfly",
     "Type B: The Adventurer",
     "Type C: The Creative Thinker",
