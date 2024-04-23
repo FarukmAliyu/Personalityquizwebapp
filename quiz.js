@@ -1,3 +1,4 @@
+(function() {
 var allQuestions = [{
     question: "What is your favorite type of music?:",
     options: ["Pop 🎤", "Hip/Hop 🎧", "RnB 🎵", "Jazz 🎷"],
