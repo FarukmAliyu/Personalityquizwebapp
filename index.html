@@ -12,6 +12,21 @@
             background-repeat: no-repeat;
             font-family: 'Josefin Sans', sans-serif; /* This will apply the Google font to the entire document */
         }
+        /* Add styles for the footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
     </style>
 </head>
 <body>
@@ -21,7 +36,18 @@
         <div class="button" id="next"><a href="#">Next</a></div>
         <div class="button" id="prev"><a href="#">Prev</a></div> 
         <button id="share" style="display: none;">Share</button>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <p>Follow us on social media:</p>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     <script src="quiz.js"></script>
 </body>
 </html>
+
