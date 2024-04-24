@@ -1,11 +1,11 @@
 (function() {
-var allQuestions = [{
+  var allQuestions = [{
     question: "What is your favorite type of music?:",
     options: ["Pop 🎤", "Hip/Hop 🎧", "RnB 🎵", "Jazz 🎷"],
     answer: 2
   }, {
     question: "How do you prefer to communicate with others?",
-    options: ["Face-to-face conversation", "Phone call", "Text message", "Email"],
+    options: ["Face-to-face conversation", "Phone call 📞", "Text message 📱", "Email 📧"],
     answer: 3
   }, {
     question: "Which animal best represents your personality?",
@@ -19,8 +19,8 @@ var allQuestions = [{
     question: "What is your favorite season?",
     options: ["Winter ❄️", "Fall 🍁", "Summer ☀️", "Spring 🌸"],
     answer: 1
-}];
-var personalityTypes = [
+  }];
+  var personalityTypes = [
     "Type A: The Social Butterfly",
     "Type B: The Adventurer",
     "Type C: The Creative Thinker",
