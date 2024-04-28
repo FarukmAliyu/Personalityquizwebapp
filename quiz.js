@@ -1,4 +1,5 @@
 (function() {
+  // Array containing all questions
   var allQuestions = [{
     question: "What is your favorite type of music?:",
     options: ["Pop 🎤", "Hip/Hop 🎧", "RnB 🎵", "Jazz 🎷"],
@@ -20,6 +21,8 @@
     options: ["Winter ❄️", "Fall 🍁", "Summer ☀️", "Spring 🌸"],
     answer: 1
   }];
+
+  // Array containing personality types
   var personalityTypes = [
     "Type A: The Social Butterfly",
     "Type B: The Adventurer",
@@ -32,99 +35,99 @@
   var selectOptions = [];
   var quizSpace = $('#quiz');
 
+  // Function to create the quiz element
+  function createQuizElement(index) {
+    var element = $('<div>', { id: 'question' });
+    var header = $('<h2>').text('Question No. ' + (index + 1) + ':');
+    var question = $('<p>').text(allQuestions[index].question);
+    var optionsList = $('<ul>');
+
+    // Create radio buttons for options
+    allQuestions[index].options.forEach(function(option, i) {
+      var listItem = $('<li>');
+      var radioInput = $('<input>', {
+        type: 'radio',
+        name: 'answer',
+        value: i
+      });
+      var optionLabel = $('<label>').text(option);
+      listItem.append(radioInput, optionLabel);
+      optionsList.append(listItem);
+    });
+
+    element.append(header, question, optionsList);
+    return element;
+  }
+
+  // Function to handle user selection
+  function selectOption() {
+    selectOptions[quesCounter] = +$('input[name="answer"]:checked').val();
+  }
+
+  // Function to display next question
+  function nextQuestion() {
+    quizSpace.fadeOut(function() {
+      $('#question').remove();
+      if (quesCounter < allQuestions.length) {
+        var nextQuestion = createQuizElement(quesCounter);
+        quizSpace.append(nextQuestion).fadeIn();
+        if (!isNaN(selectOptions[quesCounter])) {
+          $('input[value=' + selectOptions[quesCounter] + ']').prop('checked', true);
+        }
+      } else {
+        var personalityType = getPersonalityType();
+        var result = $('<div>', { id: 'result' });
+        var header = $('<h2>').text('Personality Type:');
+        var body = $('<p>').text(personalityType);
+        var shareButton = $('<button>', { id: 'share' }).text('Share Your Result');
+        
+        result.append(header, body, shareButton);
+        quizSpace.append(result).fadeIn();
+        $('#next, #prev').hide();
+      }
+    });
+  }
+
+  // Function to determine personality type
+  function getPersonalityType() {
+    var personalityIndex = selectOptions.reduce((total, value) => total + value, 0) % personalityTypes.length;
+    return personalityTypes[personalityIndex];
+  }
+
+  // Initial display of first question
   nextQuestion();
 
+  // Event handler for next button click
   $('#next').click(function() {
-    chooseOption();
+    selectOption();
     if (isNaN(selectOptions[quesCounter])) {
-      alert('Please select an option !');
+      alert('Please select an option!');
     } else {
       quesCounter++;
       nextQuestion();
     }
   });
 
+  // Event handler for previous button click
   $('#prev').click(function() {
-    chooseOption();
+    selectOption();
     quesCounter--;
     nextQuestion();
   });
 
-  function createElement(index) {
-    var element = $('<div>', {
-      id: 'question'
-    });
-    var header = $('<h2>Question No. ' + (index + 1) + ' :</h2>');
-    element.append(header);
+  // Event handler for share button click
+  $(document).on('click', '#share', function() {
+    var personalityType = getPersonalityType();
+    var shareText = "My personality type is: " + personalityType;
+    var shareUrl = encodeURIComponent(window.location.href);
+    var facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=" + shareUrl;
+    var twitterUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareText);
+    var whatsappUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText + " " + shareUrl);
 
-    var question = $('<p>').append(allQuestions[index].question);
-    element.append(question);
-
-    var radio = radioButtons(index);
-    element.append(radio);
-
-    return element;
-  }
-
-  function radioButtons(index) {
-    var radioItems = $('<ul>');
-    var item;
-    var input = '';
-    for (var i = 0; i < allQuestions[index].options.length; i++) {
-      item = $('<li>');
-      input = '<input type="radio" name="answer" value=' + i + ' />';
-      input += allQuestions[index].options[i];
-      item.append(input);
-      radioItems.append(item);
-    }
-    return radioItems;
-  }
-
-  function chooseOption() {
-    selectOptions[quesCounter] = +$('input[name="answer"]:checked').val();
-  }
-
-  function nextQuestion() {
-    quizSpace.fadeOut(function() {
-      $('#question').remove();
-      if (quesCounter < allQuestions.length) {
-        var nextQuestion = createElement(quesCounter);
-        quizSpace.append(nextQuestion).fadeIn();
-        if (!(isNaN(selectOptions[quesCounter]))) {
-          $('input[value=' + selectOptions[quesCounter] + ']').prop('checked', true);
-        }
-        if (quesCounter === 1) {
-          $('#prev').show();
-        } else if (quesCounter === 0) {
-          $('#prev').hide();
-          $('#next').show();
-        }
-      } else {
-        var personalityType = getPersonalityType();
-        var result = $('<div>', {
-          id: 'result'
-        });
-        var header = $('<h2>').text('Personality Type:');
-        var body = $('<p>').text(personalityType);
-        result.append(header);
-        result.append(body);
-        quizSpace.append(result).fadeIn();
-        $('#next').hide();
-        $('#prev').hide();
-        $('#share').show(); // Show share button on results page
-      }
-    });
-  }
-
-  $('#share').click(function() {
-    // Placeholder for sharing functionality
-    alert("Share your personality type!");
+    window.open(facebookUrl, "_blank");
+    window.open(twitterUrl, "_blank");
+    window.open(whatsappUrl, "_blank");
   });
-
-  function getPersonalityType() {
-    // Determine the personality type based on the selected options
-    var personalityIndex = selectOptions.reduce((total, value) => total + value, 0) % personalityTypes.length;
-    return personalityTypes[personalityIndex];
-  }
 })();
+
 
