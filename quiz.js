@@ -120,11 +120,9 @@
     var personalityType = getPersonalityType();
     var shareText = "My personality type is: " + personalityType;
     var shareUrl = encodeURIComponent(window.location.href);
-    var facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=" + shareUrl;
     var twitterUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareText);
     var whatsappUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText + " " + shareUrl);
 
-    window.open(facebookUrl, "_blank");
     window.open(twitterUrl, "_blank");
     window.open(whatsappUrl, "_blank");
   });
